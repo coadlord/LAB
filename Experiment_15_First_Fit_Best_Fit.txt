@@ -1,0 +1,39 @@
+Experiment 15: First-Fit and Best-Fit Memory Allocation
+
+Python Program:
+
+blocks = [100, 500, 200, 300, 600]
+processes = [212, 417, 112, 426]
+
+for method in ["First-Fit", "Best-Fit"]:
+    memory = blocks.copy()
+    print(method + ":")
+
+    for process in processes:
+        choices = [
+            i for i in range(5)
+            if memory[i] >= process
+        ]
+
+        if not choices:
+            print(process, "-> Not allocated")
+        else:
+            if method == "First-Fit":
+                index = choices[0]
+            else:
+                index = min(choices, key=lambda i: memory[i])
+
+            print(process, "-> Block", index + 1)
+            memory[index] -= process
+
+Output:
+First-Fit:
+212 -> Block 2
+417 -> Block 5
+112 -> Block 2
+426 -> Not allocated
+Best-Fit:
+212 -> Block 4
+417 -> Block 2
+112 -> Block 3
+426 -> Block 5

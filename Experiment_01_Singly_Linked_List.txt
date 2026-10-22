@@ -1,0 +1,36 @@
+Experiment 1: Singly Linked List — Insertion and Deletion
+
+Python Program:
+
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+head = Node(10)
+head.next = Node(20)
+head.next.next = Node(30)
+
+# Insertion
+new_node = Node(40)
+head.next.next.next = new_node
+
+# Display
+temp = head
+while temp:
+    print(temp.data, end=" ")
+    temp = temp.next
+
+# Deletion of first node
+head = head.next
+
+print("\nAfter deletion:")
+temp = head
+while temp:
+    print(temp.data, end=" ")
+    temp = temp.next
+
+Output:
+10 20 30 40
+After deletion:
+20 30 40

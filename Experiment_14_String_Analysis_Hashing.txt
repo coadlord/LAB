@@ -1,0 +1,17 @@
+Experiment 14: String Analysis Using Hashing
+
+Python Program:
+
+text = "hello"
+frequency = {}
+
+for character in text:
+    if character in frequency:
+        frequency[character] += 1
+    else:
+        frequency[character] = 1
+
+print("Character frequency:", frequency)
+
+Output:
+Character frequency: {'h': 1, 'e': 1, 'l': 2, 'o': 1}

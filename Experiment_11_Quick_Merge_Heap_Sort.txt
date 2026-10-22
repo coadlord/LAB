@@ -1,0 +1,53 @@
+Experiment 11: Quick Sort, Merge Sort and Heap Sort
+
+Python Program:
+
+import heapq
+
+numbers = [40, 10, 30, 20]
+
+# Quick Sort
+def quick_sort(a):
+    if len(a) <= 1:
+        return a
+
+    pivot = a[0]
+    left = [x for x in a[1:] if x < pivot]
+    right = [x for x in a[1:] if x >= pivot]
+
+    return quick_sort(left) + [pivot] + quick_sort(right)
+
+# Merge Sort
+def merge_sort(a):
+    if len(a) <= 1:
+        return a
+
+    mid = len(a) // 2
+    left = merge_sort(a[:mid])
+    right = merge_sort(a[mid:])
+
+    result = []
+
+    while left and right:
+        if left[0] < right[0]:
+            result.append(left.pop(0))
+        else:
+            result.append(right.pop(0))
+
+    return result + left + right
+
+# Heap Sort
+heapq.heapify(numbers)
+result = []
+
+while numbers:
+    result.append(heapq.heappop(numbers))
+
+print("Quick Sort:", quick_sort([40, 10, 30, 20]))
+print("Merge Sort:", merge_sort([40, 10, 30, 20]))
+print("Heap Sort:", result)
+
+Output:
+Quick Sort: [10, 20, 30, 40]
+Merge Sort: [10, 20, 30, 40]
+Heap Sort: [10, 20, 30, 40]

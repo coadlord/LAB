@@ -1,0 +1,24 @@
+Experiment 13: Hash Table Using Chaining
+
+Python Program:
+
+table = [[] for i in range(5)]
+numbers = [10, 15, 20, 7]
+
+for number in numbers:
+    index = number % 5
+    table[index].append(number)
+
+print("Hash Table:", table)
+
+key = 15
+index = key % 5
+
+if key in table[index]:
+    print("Element found")
+else:
+    print("Element not found")
+
+Output:
+Hash Table: [[10, 15, 20], [], [7], [], []]
+Element found

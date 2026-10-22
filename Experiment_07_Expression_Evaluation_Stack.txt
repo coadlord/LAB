@@ -1,0 +1,25 @@
+Experiment 7: Expression Evaluation Using Stack
+
+Python Program:
+
+expression = "2 3 +"
+stack = []
+
+for item in expression.split():
+    if item.isdigit():
+        stack.append(int(item))
+    else:
+        b = stack.pop()
+        a = stack.pop()
+
+        if item == '+':
+            stack.append(a + b)
+        elif item == '-':
+            stack.append(a - b)
+        elif item == '*':
+            stack.append(a * b)
+
+print("Result:", stack.pop())
+
+Output:
+Result: 5

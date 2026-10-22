@@ -1,0 +1,33 @@
+Experiment 9: Dijkstra's Algorithm
+
+Python Program:
+
+import heapq
+
+graph = {
+    'A': [('B', 4), ('C', 1)],
+    'B': [('A', 4), ('C', 2), ('D', 1)],
+    'C': [('A', 1), ('B', 2), ('D', 5)],
+    'D': [('B', 1), ('C', 5)]
+}
+
+distance = {'A': 0, 'B': 999, 'C': 999, 'D': 999}
+queue = [(0, 'A')]
+
+while queue:
+    current, node = heapq.heappop(queue)
+
+    if current > distance[node]:
+        continue
+
+    for neighbour, weight in graph[node]:
+        new = current + weight
+
+        if new < distance[neighbour]:
+            distance[neighbour] = new
+            heapq.heappush(queue, (new, neighbour))
+
+print(distance)
+
+Output:
+{'A': 0, 'B': 3, 'C': 1, 'D': 4}

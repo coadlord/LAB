@@ -1,0 +1,21 @@
+Experiment 8: Min-Heap and Max-Heap
+
+Python Program:
+
+import heapq
+
+# Min Heap
+a = [10, 20, 5]
+heapq.heapify(a)
+
+print("Min Heap:", a)
+
+# Max Heap
+b = [10, 20, 5]
+heapq._heapify_max(b)
+
+print("Max Heap:", b)
+
+Output:
+Min Heap: [5, 20, 10]
+Max Heap: [20, 10, 5]

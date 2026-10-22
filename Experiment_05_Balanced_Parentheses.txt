@@ -1,0 +1,20 @@
+Experiment 5: Balanced Parentheses
+
+Python Program:
+
+s = "(a+b)"
+stack = []
+
+for i in s:
+    if i == '(':
+        stack.append(i)
+    elif i == ')':
+        stack.pop()
+
+if len(stack) == 0:
+    print("Balanced")
+else:
+    print("Not Balanced")
+
+Output:
+Balanced

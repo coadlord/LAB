@@ -1,0 +1,48 @@
+Experiment 3: Linear Queue, Circular Queue and Task Scheduler
+
+Python Program:
+
+# Linear Queue
+queue = []
+
+queue.append(10)
+queue.append(20)
+queue.append(30)
+
+print("Linear Queue:", queue)
+
+queue.pop(0)
+print("After deletion:", queue)
+
+# Circular Queue
+size = 3
+circular = [None] * size
+front = 0
+rear = -1
+
+for item in [10, 20, 30]:
+    rear = (rear + 1) % size
+    circular[rear] = item
+
+print("Circular Queue:", circular)
+
+circular[front] = None
+front = (front + 1) % size
+
+print("After deletion:", circular)
+
+# Task Scheduler
+tasks = ["Task A", "Task B", "Task C"]
+
+while tasks:
+    task = tasks.pop(0)
+    print("Executing:", task)
+
+Output:
+Linear Queue: [10, 20, 30]
+After deletion: [20, 30]
+Circular Queue: [10, 20, 30]
+After deletion: [None, 20, 30]
+Executing: Task A
+Executing: Task B
+Executing: Task C
