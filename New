@@ -1,0 +1,13 @@
+table = [[], [], [], [], []]
+numbers = [10, 15, 20, 7]
+
+for number in numbers:
+    index = number % 5
+    table[index].append(number)
+
+print("Hash Table:", table)
+
+if 15 in table[15 % 5]:
+    print("Element found")
+else:
+    print("Element not found")
