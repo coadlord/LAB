@@ -1,0 +1,25 @@
+blocks = [100, 500, 200, 300, 600]
+processes = [212, 417, 112, 426]
+
+for method in ["First-Fit", "Best-Fit"]:
+    memory = blocks.copy()
+    print(method + ":")
+
+    for process in processes:
+        block = -1
+
+        for index in range(5):
+            if memory[index] >= process:
+                if block == -1:
+                    block = index
+                elif method == "Best-Fit" and memory[index] < memory[block]:
+                    block = index
+
+                if method == "First-Fit":
+                    break
+
+        if block == -1:
+            print(process, "-> Not allocated")
+        else:
+            print(process, "-> Block", block + 1)
+            memory[block] -= process
