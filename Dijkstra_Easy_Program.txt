@@ -1,0 +1,22 @@
+Dijkstra's Algorithm - Easy Python Program
+
+graph = {
+    'A': [('B', 4), ('C', 1)],
+    'B': [('A', 4), ('C', 2), ('D', 1)],
+    'C': [('A', 1), ('B', 2), ('D', 5)],
+    'D': [('B', 1), ('C', 5)]
+}
+
+distance = {'A': 0, 'B': 999, 'C': 999, 'D': 999}
+
+for i in range(4):
+    for node in graph:
+        for neighbour, weight in graph[node]:
+            if distance[node] + weight < distance[neighbour]:
+                distance[neighbour] = distance[node] + weight
+
+print(distance)
+
+
+Output:
+{'A': 0, 'B': 3, 'C': 1, 'D': 4}
